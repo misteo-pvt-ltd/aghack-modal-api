@@ -65,6 +65,13 @@ def uploadImage():
             'maldesc':"ഇല അസുഖ വിവരം"
 
         }
+    elif(prediction=='Little Leaf'):
+        resp={
+            'msg':prediction,
+            'desc':'Dummy description for Little Leaf',
+            'maldesc':"ഇല അസുഖ വിവരം"
+
+        }
     
 
     return jsonify(resp)

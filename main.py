@@ -7,7 +7,7 @@ import ssl
 app = Flask(__name__)
 CORS(app)
 context = ssl.SSLContext()
-context.load_cert_chain('/etc/letsencrypt/live/dev.misteo.co/fullchain.pem', '/etc/letsencrypt/live/dev.misteo.co/privkey.pem')
+context.load_cert_chain('fullchain.pem', 'privkey.pem')
 
 @app.route("/processimg", methods=[ "GET",'POST'])
 def uploadImage():

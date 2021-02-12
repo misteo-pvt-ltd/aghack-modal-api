@@ -22,6 +22,10 @@ def predict(image):
 	image = cv2.imread(image)
 	image = tf.image.resize(image, [320,320])
 	# image = image.numpy()[:,:,3]
+	try:
+		image = image.numpy()[:,:,3]
+	except:
+		print('not a rgba image')
 	image = np.expand_dims(image, axis = 0)
 	prediction = model.predict(image)
 	prediction = np.argmax(prediction)

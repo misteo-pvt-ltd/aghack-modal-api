@@ -15,23 +15,41 @@ classes = 	{0 : 'Bacterial Spot',
 			6 : 'Spider Mite Damage',
 			7 : 'Tomato Yellow Leaf Curl'}
 
+# def predict(image):
+# 	"""
+# 	Just Give an RGB image
+# 	"""
+# 	image = cv2.imread(image)
+# 	image = tf.image.resize(image, [320,320])
+# 	# image = image.numpy()[:,:,3]
+# 	try:
+# 		image = image.numpy()[:,:,3]
+# 	except:
+# 		print('not a rgba image')
+# 	image = np.expand_dims(image, axis = 0)
+# 	prediction = model.predict(image)
+# 	prediction = np.argmax(prediction)
+# 	prediction = classes[prediction]
+# 	print('prediction=',prediction)
+# 	return prediction
+
 def predict(image):
 	"""
 	Just Give an RGB image
 	"""
-	image = cv2.imread(image)
+	image = Image.open(image)
+	image = np.array(image)
 	image = tf.image.resize(image, [320,320])
-	# image = image.numpy()[:,:,3]
-	try:
-		image = image.numpy()[:,:,3]
-	except:
-		print('not a rgba image')
+	image = image.numpy()[:,:,:3]
 	image = np.expand_dims(image, axis = 0)
 	prediction = model.predict(image)
 	prediction = np.argmax(prediction)
 	prediction = classes[prediction]
 	print('prediction=',prediction)
 	return prediction
+	
+
+
 
 # predict('/home/amjadh/Desktop/Misteo/aghack/images/bacterialspot.png')
 # predict('/home/amjadh/Pictures/Screenshot from 2021-02-11 22-31-40.png')

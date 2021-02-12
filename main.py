@@ -21,7 +21,9 @@ def uploadImage():
         resp={
             'msg': prediction,
             'desc':'Dummy description for Bacterial spot',
-            'maldesc':"ഇല അസുഖ  വിവരം"
+            'maldesc':"ഇല അസുഖ  വിവരം",
+            'chemcontrolmal':"പ്ലാന്റോമൈസിൻ/സ്ട്രെപ്റ്റോസൈക്ലിൻ 1 ഗ്രാം/6 ലിറ്റർ വാട്ടർ സ്പ്രേ 1% Bordeaux മിശ്രിതം തളിക്കുക ",
+            'chemcontroleng':"Plantomycin/ streptocyclin 1g/ 6 litre water spray Spray of 1% Bordeaux mixture"
             }
     elif(prediction=='Healthy'):
         resp={
@@ -34,14 +36,18 @@ def uploadImage():
         resp={
             'msg':prediction,
             'desc':'Dummy description for Cold Injury',
-            'maldesc':"ഇല അസുഖ  വിവരം"
+            'maldesc':"ഇല അസുഖ  വിവരം",
+            'chemcontrolmal':"മരക്കുന്നതിനുമുമ്പ് ചെടിയെ നനയ്ക്കുന്നത് തണുത്ത പരിക്കിൽ നിന്ന് സംരക്ഷിക്കും",
+            'chemcontroleng':"irrigating the plant before the freeze can protect from cold injury"
+
 
         }
     elif(prediction=='Early Blight'):
         resp={
             'msg':prediction,
             'desc':'Dummy description for Early Blight',
-            'maldesc':"ഇല അസുഖ  വിവരം"
+            'maldesc':"ഇല അസുഖ  വിവരം",
+            'chemcontrolmal':"10 ദിവസത്തെ ഇടവേളകളിൽ മാങ്കോസെബ് അല്ലെങ്കിൽ ക്ലോറോത്തലോണിൻ 0.2% സ്പ്രേ ഉപയോഗിച്ച് ഇതര സ്പ്രേകളുള്ള കുമിൾനാശിനി പ്രയോഗം.",
 
         }
     elif(prediction=='Nutritional Disorder'):
@@ -70,6 +76,7 @@ def uploadImage():
             'msg':prediction,
             'desc':'Dummy description for Little Leaf',
             'maldesc':"ഇല അസുഖ വിവരം"
+
 
         }
     

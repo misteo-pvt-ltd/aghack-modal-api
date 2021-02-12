@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from inference import predict
+from flask_cors import CORS
 import time
 import ssl
 
 app = Flask(__name__)
+CORS(app)
 context = ssl.SSLContext()
 context.load_cert_chain('/etc/letsencrypt/live/dev.misteo.co/fullchain.pem', '/etc/letsencrypt/live/dev.misteo.co/privkey.pem')
 

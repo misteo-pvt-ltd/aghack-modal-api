@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify
 from inference import predict
 import time
+import ssl
 
 app = Flask(__name__)
+context = ssl.SSLContext()
+context.load_cert_chain('/etc/letsencrypt/live/dev.misteo.co/fullchain.pem', '/etc/letsencrypt/live/dev.misteo.co/privkey.pem')
 
-@app.route("/im_size", methods=[ "GET",'POST'])
+@app.route("/processimg", methods=[ "GET",'POST'])
 def uploadImage():
     isthisFile=request.files.get('file')
     print(isthisFile)
@@ -15,4 +18,4 @@ def uploadImage():
 
 
 if __name__ == "__main__":
-    app.run(debug=True,host='0.0.0.0',port=5002)
+    app.run(host='0.0.0.0',ssl_context=context,port=5002)
